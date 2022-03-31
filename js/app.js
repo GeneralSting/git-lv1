@@ -18,19 +18,6 @@ function onAddWebsite(e) {
   `;
 }
 
-$(document).ready(function () {
-    $('tr').click(function () {
-        //Check to see if background color is set or if it's set to white.
-        if(this.style.background == "" || this.style.background =="white") {
-            $(this).css('background', 'red');
-        }
-        else {
-            $(this).css('background', 'white');
-        }
-    });
-});
-
-
 function onDeleteRow(e) {
   if (!e.target.classList.contains("deleteBtn")) {
     return;

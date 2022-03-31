@@ -13,21 +13,24 @@
 
         <form>
           <div class="input-row">
-            <label for="naziv">Url</label>
+            <label for="naziv">Naziv</label>
             <input type="text" name="naziv" id="naziv" />
           </div>
           <div class="input-row">
-            <label for="semestar">Website Name</label>
+            <label for="semestar">Semestar</label>
             <input type="text" name="semestar" id="semestar" />
           </div>
           <div class="input-row">
-            <label for="ects">Website Name</label>
+            <label for="ects">ECTS</label>
             <input type="text" name="ects" id="ects" />
           </div>
           <button>Submit</button>
           <!--<input type="button" id="upis" value="Upis">-->
           </form>
           </fieldset>
+
+          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
         <table>
           <thead>
             <tr>
@@ -39,10 +42,33 @@
               <th></th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody id="tijeloTablice"></tbody>
         </table>
 
             <script src="assets/plugins/jquery/jquery-3.6.0.min.js"></script>
+            <script>
+              function myFunction() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("tijeloTablice");
+                tr = table.getElementsByTagName("tr");
+              
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                  td = tr[i].getElementsByTagName("td")[0];
+                  if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      tr[i].style.display = "";
+                    } else {
+                      tr[i].style.display = "none";
+                    }
+                  }
+                }
+              }
+              </script>
             <script src="js/app.js"></script>
-          </table>          
+    </body>
 </html>

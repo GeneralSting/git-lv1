@@ -27,4 +27,9 @@ body {
     display: block;
   }
 
-  
+  #myInput{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*  Dr. Ante Pavlovic ti je preuzeo projekt sa githuba, cuo je da trebas centriranje inputa :D
